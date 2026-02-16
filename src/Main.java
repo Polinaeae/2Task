@@ -1,13 +1,36 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    IO.println(String.format("Hello and welcome!"));
+import java.util.Random;
 
-    for (int i = 1; i <= 5; i++) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        IO.println("i = " + i);
+public class Main {
+    public static void main(String[] args) {
+        int[] car = new int[50];
+        Random random = new Random();
+        System.out.println("Годы выпуска авто");
+        for (int i = 0; i <car.length; i++) {
+            car[i] = 2000 + random.nextInt(26);
+        }
+        for(int year : car) {
+            System.out.print(year + " ");
+        }
+        System.out.println();
+
+        System.out.println("Авто выпущены после 2015");
+        int auto2015 = 0;
+        for (int i = 0; i < 50; i++) {
+            if (car[i] > 2015) {
+                System.out.print(car[i] + " ");
+                auto2015++;
+            }
+        }
+        System.out.println();
+
+        System.out.println("Средний возраст авто");
+        int Sum = 0;
+        int CurrentYear = 2026;
+        for (int i = 0; i < 50; i++) {
+            int age = CurrentYear - car[i];
+            Sum = Sum + age;
+        }
+        double AverageAge = (double) Sum / 50;
+        System.out.print(AverageAge);
     }
 }
